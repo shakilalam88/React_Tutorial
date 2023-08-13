@@ -1,25 +1,34 @@
+# _Timeline
+
+```sh
+00:05:25 - Visual Code Setup
+00:10:00 - Hello World Program by using plain HTML
+00:14:25 - Hello World Program using Vanilla JavaScript
+00:18:00 - CDN links discussion
+00:32:00 - Hello World Program in React
+         - Separately writing JS code within <script> tags in HTML
+         - React.createElement explanation
+00:54:50 - Nested Elements
+01:02:00 - Array of children
+01:05:00 - Need of JSX
+         - Rearrangement of CDN files
+01:19:00 - React Library v/s Framework discussion
+01:21:00 - Advantages/Specialties of React
+01:23:00 - Session Recap
+```
+
 # _Chapter 01 - Inception_
 
 Episode 01 Inception
 
-. What is Emmet?
-. Difference between a Library and Framework?
-. What is CDN? Why do we use it?
-. Why is React known as React?
-. What is crossorigin in script tag?
-. What is difference between React and ReactDOM?
-. What is difference between react.development.js and react.production.js files via CDN?
-. What is async and defer?
-
-Coding- 
-. Build my first hello work program using
-    . HTML
-    . Css
-    . JS
-    . React using CDN
-    . Create nested React Element
-    . Use root.render
-    . Push code to Github
+- What is `Emmet`?
+- Difference between a `Library and Framework`?
+- What is `CDN`? Why do we `use` it?
+- Why is `React known as React`?
+- What is `crossorigin in script tag`?
+- What is difference between `React and ReactDOM`?
+- What is difference between `react.development.js` and `react.production.js` files via CDN?
+- What is `async and defer`?
 
 
 ## Coding -
@@ -107,3 +116,10 @@ A: `Async` - The async attribute is a `boolean attribute`. The script is downloa
 ```sh
 <script src="demo_defer.js" defer></script>
 ```
+
+As the name suggests, it allows you to import `modules`, which makes it easier to organize your code.
+Enable `strict mode` by default. This makes your code run faster, and reports more runtime errors instead of silently ignoring them.
+Execute your code only after the DOM has `initialized`, which makes DOM manipulation easier. Thanks to this, you won't need to listen to load/readystatechange/DOMContentLoaded events.
+Prevent top level variables from implicitly polluting the global namespace.
+Allow you to use top-level await in supported engines.
+Load and parse your code `asynchronously`, which improves load performance.

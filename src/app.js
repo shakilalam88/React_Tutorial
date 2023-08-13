@@ -73,6 +73,8 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Header from './component/Header'
+import Body from './component/Body'
 
 /* 
  --Header
@@ -88,72 +90,14 @@ import ReactDOM from 'react-dom/client'
    -Address
    -Contact
 */
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="header_logo">
-        <img
-          src="https://www.designmantic.com/logo-images/5807.png?company=Company+Name&slogan=&verify=1"
-          alt=""
-          className="logo"
-        />
-      </div>
-      <div className="header_navBar">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
 
-const RestaurantCard = () => {
-  return (
-    <div
-      className="restaurantcard"
-      style={{ background: '#f0f0f0' }}
-    >
-      <img
-        src="https://img.freepik.com/free-photo/exploding-burger-with-vegetables-melted-cheese-black-background-generative-ai_157027-1734.jpg?w=826&t=st=1688799498~exp=1688800098~hmac=ace898f5d28b0f45b72ec9ff865f06a00c7163e0bbf40d15c888664e23873654"
-        alt=""
-      />
-      <h3>Hichkii Restaurant</h3>
-      <h4>Burger</h4>
-      <h4>4.4 star</h4>
-      <h4>20 min</h4>
-    </div>
-  )
-}
-
-const Home = () => {
-  return (
-    <div className="home">
-      <div className="search">Search</div>
-      <div className="res_container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-      </div>
-    </div>
-  )
-}
 const AppLayout = () => {
   return (
     <div className="App">
       {/* Header */}
       <Header />
       {/* Body */}
-      <Home />
+      <Body />
       {/* Footer */}
     </div>
   )

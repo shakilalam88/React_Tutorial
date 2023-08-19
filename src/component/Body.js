@@ -1,32 +1,114 @@
 import RestaurantCard from './RestaurantCard'
 import resList from '../utils/mockData'
+import { useState, useEffect } from 'react'
+import Shimmer from './Shimmer'
 
 const Body = () => {
+  // whenever state variable change, react triggers a reconciliation cycle (re-render the component)
+
+  const [resData, setResData] = useState([])
+  console.log('resData', resData)
+
+  const [listOfRestaurant, setListOfRestaurant] = useState([])
+  console.log('listOfRestaurant', listOfRestaurant)
+
+  const [searchText, setSearchText] = useState('')
+  //   console.log(typeof listOfRestaurant)
+
+  const fetchData = async () => {
+    const data = await fetch(
+      'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+    )
+    const json = await data.json()
+
+    // console.log(
+    //   'apiData',
+    //   json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants
+    // )
+    setResData(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    )
+    setListOfRestaurant(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    )
+  }
+
+  useEffect(() => {
+    fetchData()
+    // console.log('useEffect')
+  }, [])
+  // console.log('body component')
+
+  // conditional rendering
+
+  // if (listOfRestaurant.length === 0) {
+  //   return <h1>Loading... </h1>
+  // }
+
+  // conditional rendering with shimmer ui
+
+  if (listOfRestaurant?.length === 0) {
+    return <Shimmer />
+  }
   return (
     <div className="home">
       <div className="filter-btn">
+        <div className="search-container">
+          <input
+            type="text"
+            name=""
+            value={searchText}
+            className="search-box"
+            onChange={(e) => {
+              setSearchText(e.target.value)
+            }}
+          />
+          <button
+            onClick={() => {
+              const filterRestaurant = resData.filter((data) => {
+                return data.info.name
+                  .toLocaleLowerCase('en-US')
+                  .includes(searchText.toLocaleLowerCase('en-US'))
+              })
+              setListOfRestaurant(filterRestaurant)
+              setSearchText('')
+            }}
+          >
+            search
+          </button>
+        </div>
+        <p></p>
         <button
+          // onClick={() => {
+          //   const listOfRestaurant = resList.filter(
+          //     (res) => res.data.avgRating > 3.7
+          //   )
+          //   setListOfRestaurant(listOfRestaurant)
+          // }}
           onClick={() => {
-            const listOfRestaurant = resList.filter(
-              (res) => res.data.avgRating > 3.7
-            )
-            console.log(listOfRestaurant)
+            const updatedData = listOfRestaurant.filter((data) => {
+              // console.log('aaa', data.info.avgRating)
+              return data.info.avgRating >= 4.5
+            })
+            setListOfRestaurant(updatedData)
           }}
         >
           Top Rated Restaurant
         </button>
       </div>
       <div className="res_container">
-        {resList.map((resList) => {
-          {
-            /* console.log(resList.data.id) */
+        {listOfRestaurant?.map((resList) => {
+          // console.log('test', resList?.info?.id)
+          if (resList.info) {
+            return (
+              <RestaurantCard
+                // key={resList?.info?.id}
+                // resData={resList?.info}
+                key={resList.info.id}
+                resData={resList.info}
+              />
+            )
           }
-          return (
-            <RestaurantCard
-              key={resList.data.id}
-              resData={resList}
-            />
-          )
         })}
         {/* <RestaurantCard resData={resList[0]} />
         <RestaurantCard resData={resList[1]} />

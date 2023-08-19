@@ -170,3 +170,7 @@ const Example = (props) => {
   return <div />;
 }
 ```
+
+## why React is fast
+A- React is going `efficient dom manipulation`. Because react has virtual dom. It has diff algorithm
+ React can efficiently find out difference between virtual dom and update the UI

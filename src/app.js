@@ -75,6 +75,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './component/Header'
 import Body from './component/Body'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import About from './component/About'
+import Contact from './component/Contact'
+import Error from './component/Error'
+import RestaurantMenuPage from './component/RestaurantMenuPage'
 
 /* 
  --Header
@@ -96,12 +101,46 @@ const AppLayout = () => {
     <div className="App">
       {/* Header */}
       <Header />
+      <Outlet />
       {/* Body */}
-      <Body />
+      {/* <Body /> */}
       {/* Footer */}
     </div>
   )
 }
-
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/',
+        element: <Body />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+      {
+        path: '/restaurants/:resId',
+        element: <RestaurantMenuPage />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+  {
+    path: '/about',
+    element: <About />,
+  },
+  {
+    path: '/contact',
+    element: <Contact />,
+  },
+])
 const root = ReactDOM.createRoot(document.querySelector('#root'))
-root.render(<AppLayout />)
+root.render(<RouterProvider router={appRouter} />)

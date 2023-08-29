@@ -1,4 +1,6 @@
-# Timeline 02 -Igniting our App
+# Episode 02 -Igniting our App
+
+## Timeline
 ```sh
 00:00:00 – Creating Github Repository and pushing code 
 00:03:00 – Git commands (branch, commit, push origin)
@@ -35,28 +37,7 @@
 02:11:00 – Session Recap
 ```
 
-
-# Chapter 02 - Igniting our App
-
-## Project Assignment:
-- In your `existing project`
-    - initialize `npm` into your `repo` "npm init",("test command: jest")
-    - npm i -D parcel
-    - npx parcel index.html
-    - install `react` and `react-dom`
-    - Restart server- npx parcel "file-name(index.html)"
-    - `remove CDN` links of `react`
-    - `install parcel`
-    - `ignite your app` with parcel
-    - remove `"main": "app.js"` for switching to npx parcel build index.html
-    - add `type='module'` in scripts tag
-    - add scripts for `“start”` and `“build”` with `parcel commands`
-    - add `.gitignore` file
-    - add `browserslist`
-    - `build a production version` of your code using `parcel build`
-    - The `".md"` file extension is used for Markdown files. Markdown is a lightweight markup language that allows you to write formatted text using a plain text editor.
-
-## Theory Assignment:
+## Theory Assignment Question:
 - What is `NPM`?
 - What is `Parcel/Webpack`? Why `do we need it`?
 - What is `.parcel-cache`
@@ -77,26 +58,24 @@ own words.
 - Read about `Script types in html` (MDN Docs)
 - What is `HMR (Hot Module Replacement)`
 
-# _Chapter 02 - Igniting our App_
-
-
-## Q: What is `NPM`?
+## Theory Assignment Answer:
+### Q: What is `NPM`?
 A: It is a tool used for package management and the default package manager for Node projects. `NPM is installed when NodeJS` is installed on a machine. It comes with a command-line interface (CLI) used to interact with the online database of NPM. This database is called the NPM Registry, and it hosts public and private 'packages.' To add or update packages, we use the NPM CLI to interact with this database. 
 - `npm` alternative is `yarn`
 
-### How to initialize `npm`?
+#### How to initialize `npm`?
 ```
 npm init
 ```
 `npm init -y` can be used to skip the setup step, `npm` takes care of it and creates the `package.json` json file automatically , but without configurations.
 
 
-## Q: What is `Parcel/Webpack`? Why do we need it?
+### Q: What is `Parcel/Webpack`? Why do we need it?
 A: `Parcel/Webpack` is type of a web application bundler used for development and productions purposes or power our application with different type functionalities and features.
 It offers blazing fast performance utilizing multiCore processing, and requires zero configuration. Parcel can take any type of file as an entry point, but an HTML or JavaScript file is a good place to start.
 Parcel/Webpack are type of bundlers that we use to power our application with different type functionalities and features.
 
-### Parcel Features:
+#### Parcel Features:
 * HMR (Hot Module Replacement) - parcel keeps track of file changes via file watcher algorithm and renders the changes in the files
 * File watcher algorithm - made with C++
 * Minification
@@ -113,7 +92,7 @@ Parcel/Webpack are type of bundlers that we use to power our application with di
 * Zero Configuration
 * Automatic code splitting
 
-### installation commands:
+#### installation commands:
 - Install:
 ```
 npm install -D parcel
@@ -130,16 +109,16 @@ npm install -D parcel
     npx parcel build <entry_point> 
     ```
 
-## Q: What is `.parcel-cache`?
+### Q: What is `.parcel-cache`?
 A: `.parcel-cache` is used by parcel(bundler) to reduce the building time.
 It stores information about your project when parcel builds it, so that when it rebuilds, it doesn't have to re-parse and re-analyze everything from scratch. It's a key reason why parcel can be so fast in development mode.
 
 
-## Q: What is `npx`?
+### Q: What is `npx`?
 A: `npx` is a tool that is used to execute the packages. It comes with the npm, when you installed npm above 5.2.0 version then automatically npx will installed. It is an npm package runner that can execute any package that you want from the npm registry without even installing that package.
 
 
-## Q: What is difference between `dependencies` vs `devDependencies`?
+### Q: What is difference between `dependencies` vs `devDependencies`?
 A: `Dependencies` should contain library and framework in which your app is built on, needs to function effectively. such as Vue, React, Angular, Express, JQuery and etc. 
 `DevDependencies` should contain modules/packages a developer needs during development.
 such as, `parcel, webpack, vite, mocha`.
@@ -154,16 +133,16 @@ npm install --save
 ```
 
 
-## Q: What is `Tree Shaking`?
+### Q: What is `Tree Shaking`?
 A: `Tree shaking` is process of removing the unwanted code that we do not use while developing the application.
 In computing, tree shaking is a dead code elimination technique that is applied when optimizing code.
 
 
-## Q: What is `Hot Module Replacement`?
+### Q: What is `Hot Module Replacement`?
 A: `Hot Module Replacement (HMR)` exchanges, adds, or removes modules while an application is running, without a full reload. This can significantly speed up development in a few ways: Retain application state which is lost during a full reload.
 
 
-## Q: List down your favorite `5 superpowers of Parcel` and describe any 3 of them in your own words.
+### Q: List down your favorite `5 superpowers of Parcel` and describe any 3 of them in your own words.
 A: `5 superpowers of Parcel`:
 * `HMR (Hot Module Replacement)` - adds, or removes modules while an application is running, without a full reload.
 * `File watcher algorithm` - File Watchers monitor directories on the file system and perform specific actions when desired files appear.
@@ -172,7 +151,7 @@ A: `5 superpowers of Parcel`:
 * `Caching while development`
 
 
-## Q: What is `.gitignore`? What should we `add and not add` into it?
+### Q: What is `.gitignore`? What should we `add and not add` into it?
 A: The `.gitignore file` is a text file that tells `Git` which files or folders to `ignore` in a project during `commit to the repository`.
 The types of files you should consider adding to a .gitignore file are any files that do not need to get committed. for example, For security, the security key files and API keys should get added to the gitignore.
 `package-lock.json` should `not add` into your `.gitignore` file.
@@ -202,7 +181,7 @@ node_modules
 ```
 
 
-## Q: What is the difference between `package.json` and `package-lock.json`?
+### Q: What is the difference between `package.json` and `package-lock.json`?
 A: `package.json`:
 * This file is mandatory for every project
 * It contains basic information about the project
@@ -234,20 +213,39 @@ For example  in `package.json` file:
 > If none of them is present, that means only the version specified in `package.json` file is used in the development.
 
 
-## Q: Why should I not modify `package-lock.json`?
+### Q: Why should I not modify `package-lock.json`?
 A: `package-lock.json` file contains the information about the dependencies and their versions used in the project. Deleting it would cause dependencies issues in the production environment. So don't modify it, It's being handled automatically by NPM.
 
-## Q: What is `node_modules` ? Is it a good idea to push that on git?
+### Q: What is `node_modules` ? Is it a good idea to push that on git?
 A: `node_modules` folder like a cache for the external modules that your project depends upon. When you npm install them, they are downloaded from the web and copied into the node_modules folder and Nodejs is trained to look for them there when you import them (without a specific path).
 `Don't push node_modules`in github because it contains lots of files(more than 100 MB), it will cost you memory space.
 
 
-## Q: What is the `dist` folder?
+### Q: What is the `dist` folder?
 A: The `/dist` folder contains the minimized version of the source code. The code present in the `/dist` folder is actually the code which is used on production web applications. Along with the minified code, the /dist folder also comprises of all the compiled modules that may or may not be used with other systems.
 
 
-## Q: What is `browserslist`?
+### Q: What is `browserslist`?
 A: `Browserslist` is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. It's used by frameworks/libraries such as React, Angular and Vue, but it's not limited to them.
 
-## Q: What is `HMR (Hot Module Replacement)`?
+### Q: What is `HMR (Hot Module Replacement)`?
 A: `HMR` stands for Hot Module Replacement. It's a feature of some development tools that allows you to see changes to your code in real-time without having to refresh the page or restart the application. When you make changes to your code, HMR will detect those changes and apply them to the running application without losing its current state. This can save a lot of time during development and can help you catch bugs more quickly
+
+
+## Project Assignment:
+- In your `existing project`
+    - initialize `npm` into your `repo` "npm init",("test command: jest")
+    - npm i -D parcel
+    - npx parcel index.html
+    - install `react` and `react-dom`
+    - Restart server- npx parcel "file-name(index.html)"
+    - `remove CDN` links of `react`
+    - `install parcel`
+    - `ignite your app` with parcel
+    - remove `"main": "app.js"` for switching to npx parcel build index.html
+    - add `type='module'` in scripts tag
+    - add scripts for `“start”` and `“build”` with `parcel commands`
+    - add `.gitignore` file
+    - add `browserslist`
+    - `build a production version` of your code using `parcel build`
+    - The `".md"` file extension is used for Markdown files. Markdown is a lightweight markup language that allows you to write formatted text using a plain text editor.

@@ -1,5 +1,6 @@
-# Timeline - Talk is Cheap, show me the code
+# Episode 04 - Talk is Cheap, show me the code
 
+## Timeline
 ```sh
 00:14:00 – Mock design, Various sections of a web page and its coding 
 00:23:00 – CSS coding
@@ -27,10 +28,7 @@
 02:12:00 – Session Recap
 ```
 
-# Chapter 04 - Talk is Cheap, show me the code
-
-
-## Theory Assignment:
+## Theory Assignment Question:
 - Is `JSX` mandatory for React?
 - Is `ES6` mandatory for React?
 - `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`.
@@ -44,38 +42,8 @@
 - What is `Config Driven UI`?
 
 
-## Coding Assignment:
-- Build a `Food Ordering App`
-    - Think of a `cool name` for your app
-    - Build an `AppLayout`
-    - Build a `Header Component` with `Logo` & `Nav Items` & `Cart`
-    - Build a `Body Component`
-        - Build `RestaurantList Component`
-        - Build `RestaurantCard Component`
-            - Use `static data initially`
-            - Make your `card dynamic`(pass in props)
-                - `Props` - passing arguments to a function - `Use Destructuring` & `Spread operator`
-            - `Render` your cards with `dynamic data of restaurants`
-            - Use `Array.map` to render all the restaurants
-
-### PS. Basically do everything that I did in the class, in the `same sequence`. `Don't skip small things`.
-
-
-## References:
-- [Akshay Saini Code Link](https://bitbucket.org/namastedev/namaste-react-live/src/master/)
-- [React without JSX](https://reactjs.org/docs/react-without-jsx.html)
-- [Virtual DOM](https://reactjs.org/docs/faq-internals.html)
-- [Reconciliation](https://reactjs.org/docs/reconciliation.html)
-- [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
-- [React Without ES6](https://reactjs.org/docs/react-without-es6.html)
-- [Index Keys as Anti-Pattern](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/)
-
-
-
-## Namaste React Course by Akshay Saini
-# Chapter 04 - Talk is Cheap, show me the code
-
-## Q: Is `JSX` mandatory for React?
+## Theory Assignment Answer:
+### Q: Is `JSX` mandatory for React?
 A: `JSX` is an Extension Syntax that allows writing HTML and Javascript together easily in React and is used to create React elements. These elements are then rendered to the React DOM. Each JSX element is just to make use of React easy and for calling React.createElement(component, props, …children) with less work. So, anything that is done with JSX can also be done with just plain JavaScript. So `JSX` is not mandatory but is used for writing better and clean code instead of writing code using `React.CreateElement`.
 #### Example of `JSX`
 ```
@@ -83,12 +51,12 @@ const sample = <h2>Greetings</h2>;
 ```
 
 
-## Q: Is `ES6` mandatory for React?
+### Q: Is `ES6` mandatory for React?
 A: `ES6` is not mandatory for `React` but is highly recommendable. The latest projects created on React rely a lot on ES6. React uses ES6, and you should be familiar with some of the new features like: Classes, Arrow Functions, Variables(let, const).
 ES6 stands for ECMAScript 6. ECMAScript was created to standardize JavaScript, and ES6 is the 6th version of ECMAScript, it was published in 2015.
 
 
-## Q: `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`.
+### Q: `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`.
 A: The Difference is stated below:
 - `{TitleComponent}`: This value describes the `TitleComponent` as a javascript expression or a variable or React element. 
 The `{}` can embed a javascript expression or a variable or React element inside it.
@@ -104,7 +72,7 @@ The `{}` can embed a javascript expression or a variable or React element inside
 ```
 
 
-## Q: How can I write `comments` in JSX?
+### Q: How can I write `comments` in JSX?
 A: JSX comments are written as follows:
 - `{/*  */}` - for single or multiline comments
 #### Example
@@ -118,7 +86,7 @@ A: JSX comments are written as follows:
 */}  
 ```
 
-## Q: What is `<React.Fragment></React.Fragment>` and `<></>`?
+### Q: What is `<React.Fragment></React.Fragment>` and `<></>`?
 A: `<React.Fragment></React.Fragment>` is a feature in React that allows you to return multiple elements from a React component by allowing you to group a list of children without adding extra nodes to the DOM.
 `<></>` is the shorthand tag for `React.Fragment`. The only difference between them is that the shorthand version does not support the key attribute.
 #### Example
@@ -143,13 +111,13 @@ return (
 ```
 
 
-## Q: What is `Reconciliation` in React?
+### Q: What is `Reconciliation` in React?
 A: `Reconciliation` is the process through which React updates the Browser DOM and makes React work faster. React use a `diffing algorithm` so that component updates are predictable and faster. React would first calculate the difference between the real DOM and the copy of DOM (Virtual DOM) when there's an update of components.
 React stores a copy of Browser DOM which is called `Virtual DOM`. When we make changes or add data, React creates a new Virtual DOM and compares it with the previous one. Comparison is done by `Diffing Algorithm`.
 React compares the Virtual DOM with Real DOM. It finds out the changed nodes and updates only the changed nodes in Real DOM leaving the rest nodes as it is. This process is called Reconciliation.
 
 
-## Q: What is `React Fiber`?
+### Q: What is `React Fiber`?
 A: React Fiber is a concept of ReactJS that is used to render a system faster, smoother and smarter.
 The Fiber reconciler, which became the default reconciler for React 16 and above, is a complete rewrite of React’s reconciliation algorithm to solve some long-standing issues in React.
 Because Fiber is asynchronous, React can:
@@ -158,7 +126,7 @@ Because Fiber is asynchronous, React can:
 - Split work into chunks and prioritize tasks based on importance
 
 
-## Q: Why do we need `keys` in React?
+### Q: Why do we need `keys` in React?
 A: A `key` is a special attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are unique Identifier used to give an identity to the elements in the lists.
 Keys should be given to the elements within the array to give the elements a stable identity.
 #### Example
@@ -169,12 +137,12 @@ Keys should be given to the elements within the array to give the elements a sta
 ```
 
 
-## Q: Can we use `index as keys` in React?
+### Q: Can we use `index as keys` in React?
 A: Yes, we can use the `index as keys`, but it is not considered as a good practice to use them because if the order of items may change. This can negatively impact performance and may cause issues with component state.
 Keys are taken from each object which is being rendered. There might be a possibility that if we modify the incoming data react may render them in unusual order.
 
 
-## Q: What is `props in React`? Ways to.
+### Q: What is `props in React`? Ways to.
 A: props stands for properties. Props are arguments passed into React components. props are used in React to pass data from one component to another (from a parent component to a child component(s)). They are useful when you want the flow of data in your app to be dynamic.
 #### Example
 ```
@@ -187,13 +155,13 @@ function App() {
 }
 ```
 
-## Q: What is `Config Driven UI`?
+### Q: What is `Config Driven UI`?
 A: `Config Driven UI` are based on the configurations of the data application receives. It is rather a good practice to use config driven UIs to make application for dynamic. 
 It is a very common & basic approach to interact with the User. It provides a generic interface to develop things which help your project scale well. It saves a lot of development time and effort.
 A typical login form, common in most of the Apps. Most of these forms also get frequent updates as the requirements increase in terms of Form Validations, dropdown options,.. or design changes.
 
 
-## Q: Difference between `Virtual DOM` and `Real DOM`?
+### Q: Difference between `Virtual DOM` and `Real DOM`?
 A: DOM stands for `Document Object Model`, which represents your application UI and whenever the changes are made in the application, this DOM gets updated and the user is able to visualize the changes. DOM is an interface that allows scripts to update the content, style, and structure of the document.
 - `Virtual DOM`
     - The Virtual DOM is a light-weight abstraction of the DOM. You can think of it as a copy of the DOM, that can be updated without affecting the actual DOM. It has all the same properties as the real DOM object, but doesn’t have the ability to write to the screen like the real DOM.
@@ -211,3 +179,27 @@ A: DOM stands for `Document Object Model`, which represents your application UI 
 |  Creates a new DOM if the element updates. | Update the JSX if the element update |
 | It allows us to directly target any specific node (HTML element) | It can produce about 200,000 Virtual DOM Nodes / Second. |
 | It represents the UI of your application | It is only a virtual representation of the DOM |
+
+
+## Coding Assignment:
+- Build a `Food Ordering App`
+    - Think of a `cool name` for your app
+    - Build an `AppLayout`
+    - Build a `Header Component` with `Logo` & `Nav Items` & `Cart`
+    - Build a `Body Component`
+        - Build `RestaurantList Component`
+        - Build `RestaurantCard Component`
+            - Use `static data initially`
+            - Make your `card dynamic`(pass in props)
+                - `Props` - passing arguments to a function - `Use Destructuring` & `Spread operator`
+            - `Render` your cards with `dynamic data of restaurants`
+            - Use `Array.map` to render all the restaurants
+
+## References:
+- [Akshay Saini Code Link](https://bitbucket.org/namastedev/namaste-react-live/src/master/)
+- [React without JSX](https://reactjs.org/docs/react-without-jsx.html)
+- [Virtual DOM](https://reactjs.org/docs/faq-internals.html)
+- [Reconciliation](https://reactjs.org/docs/reconciliation.html)
+- [React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture)
+- [React Without ES6](https://reactjs.org/docs/react-without-es6.html)
+- [Index Keys as Anti-Pattern](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/)

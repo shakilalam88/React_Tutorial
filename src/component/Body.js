@@ -2,15 +2,13 @@ import RestaurantCard from './RestaurantCard'
 import resList from '../utils/mockData'
 import { useState, useEffect } from 'react'
 import Shimmer from './Shimmer'
+import { Link } from 'react-router-dom'
 
 const Body = () => {
   // whenever state variable change, react triggers a reconciliation cycle (re-render the component)
 
   const [resData, setResData] = useState([])
-  console.log('resData', resData)
-
   const [listOfRestaurant, setListOfRestaurant] = useState([])
-  console.log('listOfRestaurant', listOfRestaurant)
 
   const [searchText, setSearchText] = useState('')
   //   console.log(typeof listOfRestaurant)
@@ -101,12 +99,17 @@ const Body = () => {
           // console.log('test', resList?.info?.id)
           if (resList.info) {
             return (
-              <RestaurantCard
-                // key={resList?.info?.id}
-                // resData={resList?.info}
+              <Link
                 key={resList.info.id}
-                resData={resList.info}
-              />
+                to={'/restaurants/' + resList.info.id}
+              >
+                <RestaurantCard
+                  // key={resList?.info?.id}
+                  // resData={resList?.info}
+
+                  resData={resList.info}
+                />
+              </Link>
             )
           }
         })}

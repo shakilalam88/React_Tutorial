@@ -1,5 +1,6 @@
 # Episode 06 – Exploring the World
 
+
 ## Timeline
 ```sh
 00:02:00 – Monolith Architecture
@@ -35,6 +36,7 @@
 02:12:00 – Homework (Assignment)
 ```
 
+
 ## Theory Assignment Question:
 - What is `Microservice`?
 - What is `Monolith architecture`?
@@ -48,7 +50,9 @@
 - What is `async and await`?
 - What is the use of `const json = await data.json()`; in `getRestaurants()`?
 
+
 ## Theory Assignment Answer:
+
 ### Q: What is `Microservice`?
 A: `Microservice` - also known as the microservice architecture - is an architectural and organizational approach to software development where software is composed of small independent services like database, server or a UI of the application, that communicate over well-defined APIs. These services are owned by small, self-contained teams.
 Microservices architectures make applications easier to scale and faster to develop, enabling innovation and accelerating time-to-market for new features.
@@ -167,7 +171,7 @@ so `data.json()` returns a promise resolved to a `JSON object`.
 
 
 
-### Coding Assignment:
+## Coding Assignment:
 - Play with the `useEffect Hook` to see when it is called? (before or after render)
 - Play with the `dependency array` in useEffect Hook.
 - Play with the `developer console` by putting a `debugger` in render and `useEffect`.
@@ -178,6 +182,5 @@ so `data.json()` returns a promise resolved to a `JSON object`.
 - Make `Search functionality` work.
 - Make a `Login Logout` button that `toggles with a state`.
 
-
-### References:
+## References:
 - [Akshay Saini Code Link](https://bitbucket.org/namastedev/namaste-react-live/src/master/)

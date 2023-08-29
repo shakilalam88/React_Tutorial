@@ -1,6 +1,6 @@
-## Timeline 5 - Let’s get Hooked
+# Episode 05 - Let’s get Hooked
 
-
+## Timeline
 ```sh
 00:01:43 – React advantages discussed
 00:03:51 – Create src folder
@@ -37,34 +37,15 @@
 ```
 
 
-# Chapter 05 - Let's get Hooked!
-
-
-## Theory Assignment:
+## Theory Assignment Question:
 - What is the `difference` between `Named export`, `Default export`, and `* as export`?
 - What is the `importance` of `config.js` file?
 - What are `React Hooks`?
 - Why do we need `useState Hook`?
 
 
-## Coding Assignment:
-- `Clean up` your code.
-- Create a `Folder Structure` for your app.
-- Make `different files` for each Component.
-- Create a `config file`.
-- Use all types of `import and export`.
-- Create a `Search Box` in your App.
-- Use `useState` to create a variable and `bind` it to the input box.
-- Try to make your `search bar work`.
-
-
-## References:
-- [Akshay Saini Code Link](https://bitbucket.org/namastedev/namaste-react-live/src/master/)
-
-
-# Chapter 05 - Let's get Hooked!
-
-## Q: What is the difference between `Named export`, `Default export`, and `* as export`?
+## Theory Assignment Answer:
+### Q: What is the difference between `Named export`, `Default export`, and `* as export`?
 A: ES6 provides us to import & export a module and use it in other files. ES6 provides two ways to export a module from a file: `named export` and `default export`.
 In `Named export`, one can have multiple named exports per file. Then import the specific exports they want surrounded in `{}` braces. The name of imported module has to be the same as the name of the exported module.
 In `Named export`, the component is exported from MyComponent.js file like:
@@ -124,20 +105,15 @@ import MyComponent, {MyComponent2} from "./MyComponent";
 ```
 
 
-## Q: What is the importance of `config.js` file?
+### Q: What is the importance of `config.js` file?
 A: `config.js` files are essentially editable text files that contain information required for the successful operation of a program. The files are structured in a particular way, formatted to be user configurable.
 Most of the computer programs we use: whether office suites, web browsers, even video games are configured via menu interfaces.
 Configuration files are very simple in structure. For instance, if you were to write an application, and the only thing it ever needed to know was its user's preferred name, then its one and only config file could contain exactly one word: the name of the user. For example:
-```
-Chetan
-```
-Usually, though, an application needs to keep track of more than just one piece of information, so configuration often uses a key and a value:
-```
-NAME='Chetan'
-SURNAME='Nada'
-```
 
-## Q: What are `React Hooks`?
+Usually, though, an application needs to keep track of more than just one piece of information, so configuration often uses a key and a value:
+
+
+### Q: What are `React Hooks`?
 A: In React version 16.8, React introduced a new pattern called Hooks. React Hooks are simple JavaScript functions that we can use to isolate the reusable part from a functional component. Hooks can be stateful and can manage side-effects.
 Hooks allow you to reuse stateful logic without changing your component hierarchy. This makes it easy to share Hooks among many components or with the community.
 ### React provides a bunch of standard in-built hooks:
@@ -152,7 +128,7 @@ Hooks allow you to reuse stateful logic without changing your component hierarch
 - useDebugValue: Helps to display a label in React DevTools for custom hooks.
 
 
-## Q: Why do we need `useState Hook`?
+### Q: Why do we need `useState Hook`?
 A: `useState hook` is used to maintain the state in our React application. It keeps track of the state changes so basically useState has the ability to encapsulate local state in a functional component.
 The  useState hook is a special function that takes the `initial state` as an `argument` and `returns an array` of two entries.  UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
 #### Syntax for useState hook
@@ -171,6 +147,21 @@ const Example = (props) => {
 }
 ```
 
-## why React is fast
+### why React is fast
 A- React is going `efficient dom manipulation`. Because react has virtual dom. It has diff algorithm
  React can efficiently find out difference between virtual dom and update the UI
+
+
+## Coding Assignment:
+- `Clean up` your code.
+- Create a `Folder Structure` for your app.
+- Make `different files` for each Component.
+- Create a `config file`.
+- Use all types of `import and export`.
+- Create a `Search Box` in your App.
+- Use `useState` to create a variable and `bind` it to the input box.
+- Try to make your `search bar work`.
+
+
+## References:
+- [Akshay Saini Code Link](https://bitbucket.org/namastedev/namaste-react-live/src/master/)

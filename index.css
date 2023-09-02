@@ -71,3 +71,19 @@ img{
     height: 200px;
     background-color: gray;
 } */
+.user_card{
+    background: lightcoral;
+    width: 300px;
+    padding: 1rem;
+}
+.github-user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.github_user_card{
+    background: rgb(133, 161, 253);
+    width: 300px;
+    padding: 1rem;
+}

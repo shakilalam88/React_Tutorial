@@ -1,18 +1,23 @@
-import RestaurantCard from './RestaurantCard'
+import RestaurantCard, { withRatingLave } from './RestaurantCard'
 import resList from '../utils/mockData'
 import { useState, useEffect } from 'react'
 import Shimmer from './Shimmer'
 import { Link } from 'react-router-dom'
+import useOnlineStatus from '../utils/useOnlineStatus'
 
 const Body = () => {
   // whenever state variable change, react triggers a reconciliation cycle (re-render the component)
 
-  const [resData, setResData] = useState([])
-  const [listOfRestaurant, setListOfRestaurant] = useState([])
+  const [resData, setResData] = useState([]) // for filter use
+  const [listOfRestaurant, setListOfRestaurant] = useState([]) // for iterate use
+
+  console.log('🚀  file: Body.js:13  Body  listOfRestaurant', listOfRestaurant)
 
   const [searchText, setSearchText] = useState('')
   //   console.log(typeof listOfRestaurant)
 
+  const RestaurantCarLabel = withRatingLave(RestaurantCard)
+  console.log('RestaurantCarLabel', RestaurantCarLabel)
   const fetchData = async () => {
     const data = await fetch(
       'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
@@ -43,9 +48,13 @@ const Body = () => {
   //   return <h1>Loading... </h1>
   // }
 
-  // conditional rendering with shimmer ui
-
+  const onlineStatus = useOnlineStatus()
+  if (!onlineStatus) {
+    return <h1>you are offline, check your internet</h1>
+  }
   if (listOfRestaurant?.length === 0) {
+    // conditional rendering with shimmer ui
+
     return <Shimmer />
   }
   return (
@@ -96,19 +105,28 @@ const Body = () => {
       </div>
       <div className="res_container">
         {listOfRestaurant?.map((resList) => {
-          // console.log('test', resList?.info?.id)
+          {
+            /* console.log('test', resList?.info?.avgRating) */
+          }
           if (resList.info) {
             return (
               <Link
                 key={resList.info.id}
                 to={'/restaurants/' + resList.info.id}
               >
-                <RestaurantCard
-                  // key={resList?.info?.id}
-                  // resData={resList?.info}
+                {
+                  /* if the restaurant rating > 4.3 then add a level */
+                  resList?.info?.avgRating > 4.2 ? (
+                    <RestaurantCarLabel resData={resList.info} />
+                  ) : (
+                    <RestaurantCard
+                      // key={resList?.info?.id}
+                      // resData={resList?.info}
 
-                  resData={resList.info}
-                />
+                      resData={resList.info}
+                    />
+                  )
+                }
               </Link>
             )
           }

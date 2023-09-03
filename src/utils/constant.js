@@ -14,7 +14,10 @@ export const ITEM_IMG_CDN_URL =
 
 // Swiggy API to get Restaurant data with corsproxy
 export const swiggy_api_URL =
-  'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING'
+  'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
+
+// export const swiggy_api_URL =
+//   'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING'
 
 // Swiggy API to get Restaurant Menu data with corsproxy
 export const swiggy_menu_api_URL =

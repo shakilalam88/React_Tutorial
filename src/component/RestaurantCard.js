@@ -30,4 +30,22 @@ const RestaurantCard = (props) => {
   }
 }
 
+// Higher order component
+// input - resturantcard
+export const withRatingLave = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <>
+        <label
+          className="relative bg-black text-white"
+          htmlFor=""
+        >
+          best rating
+          <RestaurantCard {...props} />
+        </label>
+      </>
+    )
+  }
+}
+
 export default RestaurantCard

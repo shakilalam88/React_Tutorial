@@ -71,15 +71,17 @@
 // root.render(<HeadingComponent />)
 // =====================================
 
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './component/Header'
 import Body from './component/Body'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
-import About from './component/About'
+// import About from './component/About'
 import Contact from './component/Contact'
 import Error from './component/Error'
 import RestaurantMenuPage from './component/RestaurantMenuPage'
+import Shimmer from './component/Shimmer'
+// import Grocery from './component/Grocery'
 
 /* 
  --Header
@@ -95,6 +97,10 @@ import RestaurantMenuPage from './component/RestaurantMenuPage'
    -Address
    -Contact
 */
+//Make smaller modules, code-splitting, chunking, Dynamic Bundling, Lazy Loading, on demand load
+
+const Grocery = lazy(() => import('./component/Grocery'))
+const About = lazy(() => import('./component/About'))
 
 const AppLayout = () => {
   return (
@@ -120,11 +126,23 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About />,
+        element: (
+          <Suspense fallback={<h>loading</h>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: '/contact',
         element: <Contact />,
+      },
+      {
+        path: '/grocery',
+        element: (
+          <Suspense fallback={<h>loading</h>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: '/restaurants/:resId',

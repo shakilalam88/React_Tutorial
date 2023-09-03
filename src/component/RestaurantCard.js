@@ -40,7 +40,7 @@ export const withRatingLave = (RestaurantCard) => {
           className="relative bg-black text-white"
           htmlFor=""
         >
-          best rating
+          best rating rest
           <RestaurantCard {...props} />
         </label>
       </>

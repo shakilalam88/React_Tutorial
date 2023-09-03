@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
     // console.log(typeof parseInt(avgRating))
     return (
       <div
-        className="restaurantcard"
+        className="restaurantcard text-black"
         style={{ background: '#f0f0f0' }}
       >
         {/* <img

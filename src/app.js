@@ -71,7 +71,7 @@
 // root.render(<HeadingComponent />)
 // =====================================
 
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './component/Header'
 import Body from './component/Body'
@@ -81,6 +81,10 @@ import Contact from './component/Contact'
 import Error from './component/Error'
 import RestaurantMenuPage from './component/RestaurantMenuPage'
 import Shimmer from './component/Shimmer'
+import UserContext from './utils/UserContext'
+import { Provider } from 'react-redux'
+import appStore from './utils/appStore'
+import Cart from './component/Cart'
 // import Grocery from './component/Grocery'
 
 /* 
@@ -103,15 +107,32 @@ const Grocery = lazy(() => import('./component/Grocery'))
 const About = lazy(() => import('./component/About'))
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState()
+
+  useEffect(() => {
+    //make an api call and send username and password
+    const data = {
+      //dummy data
+      name: 'shakil alam',
+    }
+    setUserName(data.name)
+  }, [])
+
   return (
-    <div className="App">
-      {/* Header */}
-      <Header />
-      <Outlet />
-      {/* Body */}
-      {/* <Body /> */}
-      {/* Footer */}
-    </div>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="App">
+          {/* Header */}
+          {/* <UserContext.Provider value={{ loggedInUser: 'testing' }}> */}
+          <Header />
+          {/* </UserContext.Provider> */}
+          <Outlet />
+          {/* Body */}
+          {/* <Body /> */}
+          {/* Footer */}
+        </div>
+      </UserContext.Provider>
+    </Provider>
   )
 }
 const appRouter = createBrowserRouter([
@@ -147,6 +168,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/restaurants/:resId',
         element: <RestaurantMenuPage />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

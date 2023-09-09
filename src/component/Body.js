@@ -1,9 +1,10 @@
 import RestaurantCard, { withRatingLave } from './RestaurantCard'
 import resList from '../utils/mockData'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Shimmer from './Shimmer'
 import { Link } from 'react-router-dom'
 import useOnlineStatus from '../utils/useOnlineStatus'
+import UserContext from '../utils/UserContext'
 
 const Body = () => {
   // whenever state variable change, react triggers a reconciliation cycle (re-render the component)
@@ -11,13 +12,15 @@ const Body = () => {
   const [resData, setResData] = useState([]) // for filter use
   const [listOfRestaurant, setListOfRestaurant] = useState([]) // for iterate use
 
-  console.log('🚀  file: Body.js:13  Body  listOfRestaurant', listOfRestaurant)
+  const { loggedInUser, setUserName } = useContext(UserContext)
+
+  // console.log('🚀  file: Body.js:13  Body  listOfRestaurant', listOfRestaurant)
 
   const [searchText, setSearchText] = useState('')
   //   console.log(typeof listOfRestaurant)
 
   const RestaurantCarLabel = withRatingLave(RestaurantCard)
-  console.log('RestaurantCarLabel', RestaurantCarLabel)
+  // console.log('RestaurantCarLabel', RestaurantCarLabel)
   const fetchData = async () => {
     const data = await fetch(
       'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING'
@@ -65,7 +68,7 @@ const Body = () => {
             type="text"
             name=""
             value={searchText}
-            className="search-box"
+            className="search-box border border-black"
             onChange={(e) => {
               setSearchText(e.target.value)
             }}
@@ -84,6 +87,15 @@ const Body = () => {
             search
           </button>
         </div>
+        <br />
+        <input
+          type="text"
+          name=""
+          value={loggedInUser}
+          className="search-box border border-black"
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        :name
         <p></p>
         <button
           // onClick={() => {

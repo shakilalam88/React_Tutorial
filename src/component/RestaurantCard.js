@@ -1,8 +1,11 @@
+import { useContext } from 'react'
 import { CDN_URL } from '../utils/constant'
+import UserContext from '../utils/UserContext'
+
 const RestaurantCard = (props) => {
   // console.log('data', props.resData)
   // const name = props.resData?.name
-
+  const { loggedInUser } = useContext(UserContext)
   if (props.resData) {
     const { name, avgRating, costForTwo, sla, cuisines, cloudinaryImageId } =
       props.resData
@@ -25,6 +28,7 @@ const RestaurantCard = (props) => {
         <h4>{parseInt(avgRating) > 1 ? avgRating : 'NO RATING'}</h4>
         <h4>${costForTwo.slice(1, 5) / 2}</h4>
         <h4>{sla.slaString}</h4>
+        <h3>User: {loggedInUser}</h3>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import UserClass from './UserClass'
 import React from 'react'
 import { Component } from 'react'
 import GithubUser from './GitHubUser'
+import UserContext from '../utils/UserContext'
 // const About = () => {
 //   return (
 //     <>
@@ -41,6 +42,11 @@ class About extends Component {
         {/* <GithubUser /> */}
         <p>====================================================</p>
         <h1>About us</h1>
+        <h3>
+          <UserContext.Consumer>
+            {(data) => <p className="text-bold">{data.loggedInUser}</p>}
+          </UserContext.Consumer>
+        </h3>
         <h2>Functional component</h2>
         <User
           name={'shakil (functional)'}
